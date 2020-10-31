@@ -39,10 +39,6 @@ class Lazy_Loading_Plugin
 
 if (class_exists('Lazy_Loading_Plugin'))
 {
-
-    //require_once plugin_dir_path(__FILE__) . 'inc/Settings.php';
-    //require_once plugin_dir_path(__FILE__) . 'inc/LozadProcessing.php';
-
     spl_autoload_register( function ( $class_name ) {
         if ( false !== strpos( $class_name, 'LL' ) ) {
         $classes_dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR;
