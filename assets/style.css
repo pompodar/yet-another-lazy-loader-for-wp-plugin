@@ -1,0 +1,45 @@
+.AWITPTP_icon {
+    display: flex;
+}
+
+.dashicons-format-gallery:before,
+.dashicons-welcome-write-blog:before,
+.dashicons-format-status:before {
+    display: none;
+}
+
+.AWITPTP_icon.left.dashicons-format-gallery:before {
+    font-family: "dashicons";
+    content: "\f161";
+    display: flex;
+}
+
+.AWITPTP_icon.right.dashicons-format-gallery:after {
+    font-family: "dashicons";
+    content: "\f161";
+    display: flex;
+}
+
+.AWITPTP_icon.left.dashicons-welcome-write-blog:before {
+    font-family: "dashicons";
+    content: "\f119";
+    display: flex;
+}
+
+.AWITPTP_icon.right.dashicons-welcome-write-blog:after {
+    font-family: "dashicons";
+    content: "\f119";
+    display: flex;
+}
+
+.AWITPTP_icon.left.dashicons-format-status:before {
+    font-family: "dashicons";
+    content: "\f130";
+    display: flex;
+}
+
+.AWITPTP_icon.right.dashicons-format-status:after {
+    font-family: "dashicons";
+    content: "\f130";
+    display: flex;
+}
