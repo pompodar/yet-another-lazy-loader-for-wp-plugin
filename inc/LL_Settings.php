@@ -1,5 +1,5 @@
 <?php
-class Settings
+class LL_Settings
 {
     public function plugin_settings()
     {

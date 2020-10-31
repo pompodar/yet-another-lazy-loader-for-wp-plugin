@@ -40,11 +40,19 @@ class Lazy_Loading_Plugin
 if (class_exists('Lazy_Loading_Plugin'))
 {
 
-    require_once plugin_dir_path(__FILE__) . 'inc/settings.php';
-    require_once plugin_dir_path(__FILE__) . 'inc/lazy-loader.php';
+    //require_once plugin_dir_path(__FILE__) . 'inc/Settings.php';
+    //require_once plugin_dir_path(__FILE__) . 'inc/LozadProcessing.php';
+
+    spl_autoload_register( function ( $class_name ) {
+        if ( false !== strpos( $class_name, 'LL' ) ) {
+        $classes_dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR;
+        $class_file = $class_name . '.php';
+        require_once $classes_dir . $class_file;
+        }
+    });
 
 
-    $settings_obj = new settings();
+    $settings_obj = new LL_Settings();
     $settings_obj->plugin_settings();
 
     add_filter('the_content', 'add_lazy_loading');
@@ -59,19 +67,19 @@ if (class_exists('Lazy_Loading_Plugin'))
 
             if ($pics == 'enable' && $in_general == 'enable')
             {
-                $lazy_load_pics = new LozadProcessing();
+                $lazy_load_pics = new LL_LozadProcessing();
                 $lazy_load_pics->processImages($content);
             }
             if ($back_pics == 'enable' && $in_general == 'enable') {
-                $lazy_load_back_pics = new LozadProcessing();
+                $lazy_load_back_pics = new LL_LozadProcessing();
                 $lazy_load_back_pics->processBackground($content);
             } 
             if ($iframes == 'enable' && $in_general == 'enable') {
-                $lazy_load_iframes = new LozadProcessing();
+                $lazy_load_iframes = new LL_LozadProcessing();
                 $lazy_load_iframes->processIframe($content);
             }
             if ($videos == 'enable' && $in_general == 'enable') {
-                $lazy_load_videos = new LozadProcessing();
+                $lazy_load_videos = new LL_LozadProcessing();
                 $lazy_load_videos->processVideo($content);
             }
             return $content;

@@ -1,5 +1,5 @@
 <?php
-class LozadProcessing {
+class LL_LozadProcessing {
 	
 	public function delTypeAttributeForJavascriptResource(&$content)
     {
